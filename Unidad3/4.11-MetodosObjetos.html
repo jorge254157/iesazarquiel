@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function imprimirDatos() {
+            document.write("Marca: "+this.marca);
+            document.write("<br>Modelo"+this.modelo);
+            document.write("<br>Year:"+this.anno);
+        }
+
+
+        function coche(marca_in,modelo_in,anno_in) {
+            this.marca=marca_in;
+            this.modelo=modelo_in;
+            this.anno=anno_in;
+            this.imprimeDatos=imprimirDatos;
+        }
+        let coches=new Array(4);
+        coches[0]=new coche("Ferrari","Scaflietti","2010");
+        coches[1]=new coche("BMW","Z4","1999")
+        coches[2]=new coche("Seat","Toledo","1999")
+        coches[3]=new coche("Fiat","500","1995")
+
+        for (i=0;i<coches.length;i++) {
+            document.write("<b>Marca</b>: "+coches[i].marca+"-<b>Modelo</b>"+coches[i].modelo)
+        }
+
+        let nuevo_coche=new coche("Seat","Ibiza","1998");
+        nuevo_coche.imprimeDatos();
+
+        const lenguajes=new Array('CSS','Javascript','HTML','php');
+        const frameworks=new Array('Reac','Vue','Angular');
+        const tecnologias=lenguajes.concat(frameworks);
+        let miArray1=lenguajes.join(",");
+        console.log(miArray1);
+
+        //Declara una funcion flecha a la que acepte un argumento un array de numeros y devuelva
+        //la suma de todos ellos
+
+        
+
+
+    </script>
+</body>
+</html>

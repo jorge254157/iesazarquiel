@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function generarCoche(marca,modelo,precio,año) {
+            this.marca=marca
+            this.modelo=modelo
+            this.precio=precio
+            this.año=año
+        }
+        var coches=new Array(4);
+        coches[0]=new generarCoche('Seat','Toledo','12000','2002')
+        coches[1]=new generarCoche('Opel','Astra','15000','2014')
+        coches[2]=new generarCoche('Audi','R8','1200000','2019')
+        coches[3]=new generarCoche('KIA','Sportage','18500','2022')
+        for (i=0;i<coches.length;i++) {
+            document.write("<b>Marca</b> "+coches[i].marca +" <b>Modelo</b> "
+            +coches[i].modelo+" <b>Precio</b> "+coches[i].precio+" <b>Año</b> "+coches[i].año+"<br>")
+        }
+      </script>
+</body>
+</html>

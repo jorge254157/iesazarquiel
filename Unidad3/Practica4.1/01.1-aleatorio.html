@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const premio=new Array();
+        let resul=prompt("Dime un numero")
+        function generarNumero(resul){
+            return Math.round((Math.random()*resul))
+        }
+        for (let i=1;i<=10;i++) {
+          premio.push(generarNumero(resul))
+        }
+        console.log(premio)
+        for (let j=0;j<premio.length;j++) {
+          document.write("<p>"+premio[j]+"</p>")
+        }
+      </script>
+</body>
+</html>
