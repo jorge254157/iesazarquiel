@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Lista de Personas Ordenadas por Edad</h1>
+    <ul id="listaPersonas"></ul>
+
+    <script type="text/javascript">
+        class Persona {
+            constructor(nombre, apellidos, poblacion, edad, estudios, carnetConducir) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.poblacion = poblacion;
+                this._edad = edad;
+                this._estudios = estudios;
+                this.carnetConducir = carnetConducir;
+            }
+
+            get edad() {
+                return this._edad;
+            }
+
+            set edad(edad) {
+                if (typeof edad !== 'number') {
+                    console.warn("Alerta: La edad debe ser un número.");
+                } else {
+                    this._edad=edad;
+                }
+            }
+
+            get estudios() {
+                return this._estudios;
+            }
+
+            set estudios(estudios) {
+                if (typeof estudios!=='String') {
+                    console.warn("Alerta: Los estudios deben ser una cadena de caracteres")
+                } else {
+                    this._estudios=estudios;
+                }
+            }
+
+        }
+
+        const personas = [
+            new Persona('Thibaut', 'Courtois', 'Toledo', 23, 'ESO', true),
+            new Persona('Pedro', 'Rodriguez', 'Toledo', 47, 'ESO', true),
+            new Persona('Jude', 'Bellingham', 'Toledo', 18, 'ESO', true),
+            new Persona('Lucas', 'Vazquez', 'Toledo', 36, 'ESO', true),
+            new Persona('Isco', 'Alarcon', 'Toledo', 75, 'ESO', true),
+        ];
+
+        personas.sort((a, b) => a.edad - b.edad);
+
+        const listaPersonas = document.getElementById('listaPersonas');
+
+        personas.forEach(persona => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${persona.nombre}, ${persona.edad} años`;
+            listaPersonas.appendChild(listItem);
+        });
+
+    </script>
+</body>
+</html>

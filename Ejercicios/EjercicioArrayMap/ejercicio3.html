@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+          <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Poblacion</th>
+            <th>Edad</th>
+            <th>Estudios</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-body">
+
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        class Persona {
+            constructor(nombre, apellidos, poblacion, edad, estudios) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.poblacion = poblacion;
+                this._edad = edad;
+                this._estudios = estudios;
+            }
+
+            get edad() {
+                return this._edad;
+            }
+
+            set edad(edad) {
+                if (typeof edad !== 'number') {
+                    console.warn("Alerta: La edad debe ser un número.");
+                } else {
+                    this._edad=edad;
+                }
+            }
+
+            get estudios() {
+                return this._estudios;
+            }
+
+            set estudios(estudios) {
+                if (typeof estudios!=='String') {
+                    console.warn("Alerta: Los estudios deben ser una cadena de caracteres")
+                } else {
+                    this._estudios=estudios;
+                }
+            }
+
+        }
+
+        const mapaPersonas = new Map();
+
+        mapaPersonas.set("12345678A", new Persona('Thibaut', 'Courtois', 'Toledo', 23, 'ESO'));
+        mapaPersonas.set("87654321B", new Persona('Pedro', 'Rodriguez', 'Toledo', 47, 'ESO'));
+        mapaPersonas.set("56321473K", new Persona('Jude', 'Bellingham', 'Toledo', 18, 'ESO'));
+        mapaPersonas.set("05362147L", new Persona('Lucas', 'Vazquez', 'Toledo', 36, 'ESO'));
+        mapaPersonas.set("05412785M", new Persona('Isco', 'Alarcon', 'Toledo', 75, 'ESO'));
+
+        const mapaOrdenadoPorClave = new Map([...mapaPersonas.entries()].sort());
+
+        const mapaOrdenadoPorEdad = new Map([...mapaPersonas.entries()].sort((a, b) => a[1].edad - b[1].edad));
+
+        function agregarFilasALaTabla(mapa) {
+            const tablaBody = document.getElementById("tabla-body");
+            tablaBody.innerHTML = '';
+
+            mapa.forEach((persona, dni) => {
+                const fila = document.createElement("tr");
+                fila.innerHTML = `
+                <td>${dni}</td>
+                <td>${persona.nombre}</td>
+                <td>${persona.apellidos}</td>
+                <td>${persona.poblacion}</td>
+                <td>${persona.edad}</td>
+                <td>${persona.estudios}</td>
+                `;
+
+                tablaBody.appendChild(fila);
+            });
+        }
+
+    // Llama a la función para agregar las filas a la tabla (ordenadas por clave)
+    agregarFilasALaTabla(mapaOrdenadoPorClave);
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Persona {
+            constructor(nombre, apellidos, poblacion, edad, estudios, carnetConducir) {
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.poblacion = poblacion;
+                this._edad = edad;
+                this._estudios = estudios;
+                this.carnetConducir = carnetConducir;
+            }
+
+            get edad() {
+                return this._edad;
+            }
+
+            set edad(edad) {
+                if (typeof edad !== 'number') {
+                    console.warn("Alerta: La edad debe ser un número.");
+                } else {
+                    this._edad=edad;
+                }
+            }
+
+            get estudios() {
+                return this._estudios;
+            }
+
+            set estudios(estudios) {
+                if (typeof estudios!=='String') {
+                    console.warn("Alerta: Los estudios deben ser una cadena de caracteres")
+                } else {
+                    this._estudios=estudios;
+                }
+            }
+
+        }
+
+        const persona1 = new Persona("Jorge", "Medina", "Toledo", 21, "Ingeniero", true);
+        console.log(persona1.nombre);
+        console.log(persona1.apellidos);
+        console.log(persona1.edad);
+        persona1.edad="Treinta y cinco";
+        console.log(persona1.estudios);
+        persona1.estudios=25;
+    </script>
+</body>
+</html>
