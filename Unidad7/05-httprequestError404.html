@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax con XMLHttprequest</title>
+    <link rel="stylesheet" href="01-estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Ajax con XMLHttprequest</h1>
+        <div class="contenido">
+
+        </div>
+        <button id="btn">GET!</button>
+    </div>
+
+    <script>
+        const contenido=document.querySelector(".contenido");
+        const btn=document.getElementById("btn");
+
+        //declaracion de un  nuevo objeto
+        const xhr=new XMLHttpRequest();
+
+        //init
+        xhr.open("GET", "https://www.boredapi.com/api/activity");
+
+        //tratamiento de la respuesta en el evento load
+        xhr.addEventListener("load", function(){
+           console.log(this.statusText);
+           console.log(this.status);
+           if (this.status===200) {
+              contenido.classList.add("success");
+           } else {
+              contenido.classList.add("error");
+           }
+        });
+
+        //SEND
+        //xhr.send();
+
+        //asignar evento a botón
+        btn.addEventListener("click",e=>{
+            xhr.open("GET", "./user.json");
+            xhr.resposeType="json";
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

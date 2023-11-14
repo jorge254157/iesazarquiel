@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Selecciona una tarea:</h1>
+
+    <input type="checkbox" id="tarea1" onclick="QuitarMarcado(this)">
+    <label for="tarea1">Tarea 1</label>
+
+    <input type="checkbox" id="tarea2" onclick="QuitarMarcado(this)">
+    <label for="tarea2">Tarea 2</label>
+
+    <input type="checkbox" id="tarea3" onclick="QuitarMarcado(this)">
+    <label for="tarea3">Tarea 3</label>
+    <script>
+        function QuitarMarcado(checkboxSeleccionado) {
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        checkboxes.forEach(checkbox => {
+            if (checkbox !== checkboxSeleccionado) {
+                if (checkboxSeleccionado.checked) {
+                    checkbox.checked = false;
+                }
+            }
+        });
+}
+    </script>
+</body>
+</html>

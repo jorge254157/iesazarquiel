@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="03-estilo.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Rellena este formulario</h1>
+        <form id="formulario" action="procesar.php">
+            <div class="form-group">
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" id="codigoPostal" name="codigoPostal">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="entero">Número Entero:</label>
+                <input type="number" id="entero" name="entero">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="real">Número Real:</label>
+                <input type="number" id="real" name="real">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="telefonoInternacional">Número de Teléfono Internacional:</label>
+                <input type="tel" id="telefonoInternacional" name="telefonoInternacional">
+                <p class="error-feedback"></p>
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="fechaNac">Indica tu fecha de nacimiento para más seguridad:</label>
+                <input type="date" name="fechaNac" id="fechaNac">
+                <p class="error-feedback"></p>
+                <br>
+            </div>
+            -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="url">URL:</label>
+                <input type="url" id="url" name="url">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="tarjetaCredito">Tarjeta de Crédito:</label>
+                <input type="text" id="tarjetaCredito" name="tarjetaCredito">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password">
+                <p class="error-feedback"></p>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="btn-submit">Enviar</button>
+                <button type="reset">Restablecer</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="validarFormulario.js"></script>
+
+</body>
+
+</html>

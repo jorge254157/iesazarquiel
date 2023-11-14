@@ -12,5 +12,53 @@
     <button id="btn2">Entra y sal</button>
     <button id="btn3">Ponte encima</button>
     <button id="btn4">Coordenadas</button>
+
+    <label for="x">X:</label>
+    <input id="x" name="x" type="text">
+
+    <label for="y">Y:</label>
+    <input id="y" name="y" type="text">
+
+    <script>
+        const btn1=document.querySelector("#btn1");
+        const btn2=document.querySelector("#btn2");
+        const btn3=document.querySelector("#btn3");
+        const btn4=document.querySelector("#btn4");
+
+        const inputX=document.querySelector("#x");
+        const inputY=document.querySelector("#y");
+
+        //METODO RECOMENDADO
+        btn1.addEventListener("click",function(evento){
+            console.log(evento)
+            alert("Has pulsado el botón");
+        });
+
+        btn1.addEventListener("mouseout",function(evento){
+            console.log(evento)
+            alert("Te has marchado del botón");
+        });
+
+        //MÉTODOS MÁS ANTIGUOS
+        btn3.onmouseover=function(evento){
+            console.log(evento);
+            alert("Te has puesto encima del botón");
+        }
+
+        //MÉTODO PRO
+        btn4.addEventListener("click",e=>{
+            console.log(e);
+            console.log(`X:${e.pageX},Y:${e.pageY}`);
+            inputX.value=e.pageX;
+            inputY.value=e.pageY;
+        })
+
+        document.addEventListener("mousemove",e=>{
+            inputX.value=e.pageX;
+            inputY.value=e.pageY;
+        })
+
+    </script>
+
 </body>
 </html>
